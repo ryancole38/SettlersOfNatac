@@ -17,7 +17,15 @@ test('Adjacent vertices are one unit apart', () => {
     for(let i=0; i<6; i++){
         expect(
             MathUtils.floatsEqual(
-                verts[i].distanceFromPoint(verts[i+1%6]),
+                verts[i].distanceFromPoint(verts[(i+1)%6]),
+                1
+            )
+        ).toBe(true);
+    }
+    for(let i=0; i<6; i++){
+        expect(
+            MathUtils.floatsEqual(
+                verts[i].distanceFromPoint(tile.center),
                 1
             )
         ).toBe(true);
